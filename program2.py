@@ -10,4 +10,5 @@ def romanToInt(str):
                total -= value
            else :
                total :
-                   total  
+                   total += value
+                    
