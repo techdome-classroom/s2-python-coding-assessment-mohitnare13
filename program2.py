@@ -9,6 +9,7 @@ def romanToInt(str):
            if value < prev_value :
                total -= value
            else :
-               total :
-                   total += value
+              
+                total += value
+                
                     
