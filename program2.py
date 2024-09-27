@@ -17,7 +17,6 @@ def romanToInt(s: str) -> int:
 
     return total
 
-# Example usage
 print(romanToInt("III"))     
 print(romanToInt("LVIII"))    
 print(romanToInt("MCMXCIV"))
