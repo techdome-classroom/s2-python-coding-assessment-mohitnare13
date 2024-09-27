@@ -39,4 +39,8 @@ class TestSolution(unittest.TestCase):
 
     def test_empty_string(self):
         self.assertTrue(self.solution.isValid(""))
+    def test_mixed_parentheses(self):
+        self.assertFalse(self.solution.isValid("(){"))
 
+if _name_ == '_main_':
+    unittest.main(argv=['first-arg-is-ignored'], exit=False)
