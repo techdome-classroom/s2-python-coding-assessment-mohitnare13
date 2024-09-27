@@ -4,7 +4,7 @@ class ValidParentheses:
         bracket_map = {')': '(', ']': '[', '}': '{'}
         stack = []
 
-        # Loop through each character in the string
+        
         for char in s:
             if char in bracket_map:  # If it's a closing bracket
                 # Pop the top element of the stack, if stack is not empty; otherwise, use a dummy value '#'
