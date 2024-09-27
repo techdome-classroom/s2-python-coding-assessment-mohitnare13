@@ -23,5 +23,5 @@ class Solution:
 # Example usage
 validator = Solution()
 print(validator.isValid("()"))       # Output: True
-print(validator.isValid("()[]{}"))   # Output: True
-print(validator.isValid("(]"))       # Output: False
+print(validator.isValid("()[]{}"))   
+print(validator.isValid("(]"))      
