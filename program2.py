@@ -1,15 +1,17 @@
-def romanToInt(str):
-       roman_values = {
-           "I":1 , "V" :5 , "X":10 ,"L":50 , "C":100 , "D":500 ,"M":1000
-       }
-        toatl = 0
-        prev_value = 0
-        for char in reversed(str):
-            value = roman_values[char]
-            if value < prev_value :
-               total -= value
-            else :
-              
-                total += value
-            prev_value = value
-                    
+class Solution:
+    def isValid(self, s: str) -> bool:
+        # Stack to store the opening brackets
+        stack = []
+        # Mapping of closing brackets to opening brackets
+        mapping = {')': '(', ']': '[', '}': '{'}
+        
+        # Iterate through the string
+        for char in s:
+            if char in mapping:
+                # Get the top element from stack, or a dummy value if stack is empty
+                top_element = stack.pop() if stack else '#'
+                
+                # If the mapped value of the current closing bracket doesn't match the stack's top element
+                if mapping[char] != top_element:
+                    return False
+            else:
