@@ -6,7 +6,7 @@ class ValidParentheses:
 
         
         for char in s:
-            if char in bracket_map:  # If it's a closing bracket
+            if char in bracket_map:  
                
                 top_element = stack.pop() if stack else '#'
                 
