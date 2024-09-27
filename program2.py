@@ -1,46 +1,23 @@
-class Solution:
-    def isValid(self, s: str) -> bool:
-        # Stack to store the opening brackets
-        stack = []
-        # Mapping of closing brackets to opening brackets
-        mapping = {')': '(', ']': '[', '}': '{'}
-        
-        # Iterate through the string
-        for char in s:
-            if char in mapping:
-                # Get the top element from stack, or a dummy value if stack is empty
-                top_element = stack.pop() if stack else '#'
-                
-                # If the mapped value of the current closing bracket doesn't match the stack's top element
-                if mapping[char] != top_element:
-                    return False
-            else:
-                stack.append(char)
-        
-        # If stack is empty, all opening brackets are closed properly
-        return not stack
+def romanToInt(s: str) -> int:
+    roman_values = {
+        'I': 1, 'V': 5, 'X': 10, 'L': 50, 
+        'C': 100, 'D': 500, 'M': 1000
+    }
 
+    total = 0
+    prev_value = 0
 
-# Unit test code
-import unittest
+    for char in reversed(s):
+        value = roman_values[char]
+        if value < prev_value:
+            total -= value
+        else:
+            total += value
+        prev_value = value
 
-class TestSolution(unittest.TestCase):
-    def setUp(self):
-        self.solution = Solution()
+    return total
 
-    def test_valid_parentheses(self):
-        self.assertTrue(self.solution.isValid("()"))
-        self.assertTrue(self.solution.isValid("()[]{}"))
-        self.assertTrue(self.solution.isValid("{[()]}"))
-
-    def test_invalid_parentheses(self):
-        self.assertFalse(self.solution.isValid("(]"))
-        self.assertFalse(self.solution.isValid("([)]"))
-
-    def test_empty_string(self):
-        self.assertTrue(self.solution.isValid(""))
-    def test_mixed_parentheses(self):
-        self.assertFalse(self.solution.isValid("(){"))
-
-if __name__ == '_main_':
-    unittest.main(argv=['first-arg-is-ignored'],exit=False)
+# Example usage
+print(romanToInt("III"))      # Output: 3
+print(romanToInt("LVIII"))    # Output: 58
+print(romanToInt("MCMXCIV"))  # Output: 1994
