@@ -17,5 +17,5 @@ class Solution:
                
                 stack.append(char)
 
-        # If stack is empty, all opening brackets are matched
+
         return not stack
