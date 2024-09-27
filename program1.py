@@ -22,6 +22,6 @@ class ValidParentheses:
 
 # Example usage
 validator = ValidParentheses()
-print(validator.isValid("()"))       # Output: True
+print(validator.isValid("()"))       
 print(validator.isValid("()[]{}"))  
 print(validator.isValid("(]"))      
