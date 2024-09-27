@@ -1,27 +1,49 @@
-class ValidParentheses:
+# Solution class defining the isValid method
+class Solution:
     def isValid(self, s: str) -> bool:
-        # Dictionary to map closing brackets to corresponding opening brackets
-        bracket_map = {')': '(', ']': '[', '}': '{'}
+        # Stack to store the opening brackets
         stack = []
-
-        # Loop through each character in the string
+        # Mapping of closing brackets to opening brackets
+        mapping = {')': '(', ']': '[', '}': '{'}
+        
+        # Iterate through the string
         for char in s:
-            if char in bracket_map:  # If it's a closing bracket
-                # Pop the top element of the stack, if stack is not empty; otherwise, use a dummy value '#'
+            if char in mapping:
+                # Get the top element from stack, or a dummy value if stack is empty
                 top_element = stack.pop() if stack else '#'
                 
-                # If the top element doesn't match the corresponding opening bracket, return False
-                if bracket_map[char] != top_element:
+                # If the mapped value of the current closing bracket doesn't match the stack's top element
+                if mapping[char] != top_element:
                     return False
             else:
                 # If it's an opening bracket, push it onto the stack
                 stack.append(char)
-
-        # If the stack is empty, all brackets were properly matched
+        
+        # If stack is empty, all opening brackets are closed properly
         return not stack
 
-# Example usage
-validator = ValidParentheses()
-print(validator.isValid("()"))       
-print(validator.isValid("()[]{}"))  
-print(validator.isValid("(]"))     
+
+# Unit test code
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_valid_parentheses(self):
+        self.assertTrue(self.solution.isValid("()"))
+        self.assertTrue(self.solution.isValid("()[]{}"))
+        self.assertTrue(self.solution.isValid("{[()]}"))
+
+    def test_invalid_parentheses(self):
+        self.assertFalse(self.solution.isValid("(]"))
+        self.assertFalse(self.solution.isValid("([)]"))
+
+    def test_empty_string(self):
+        self.assertTrue(self.solution.isValid(""))
+
+    def test_mixed_parentheses(self):
+        self.assertFalse(self.solution.isValid("(){"))
+
+if _name_ == '_main_':
+    unittest.main(argv=['first-arg-is-ignored'], exit=False)
