@@ -10,7 +10,7 @@ class Solution:
                 
                 top_element = stack.pop() if stack else '#'
                 
-                # If the top element doesn't match the corresponding opening bracket, return False
+               
                 if bracket_map[char] != top_element:
                     return False
             else:
