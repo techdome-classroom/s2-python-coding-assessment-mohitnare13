@@ -11,5 +11,5 @@ def romanToInt(str):
            else :
               
                 total += value
-                
+            prev_value = value
                     
