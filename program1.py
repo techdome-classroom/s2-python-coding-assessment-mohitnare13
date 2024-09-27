@@ -1,27 +1,21 @@
 class Solution:
-    def romanToInt(self, s: str) -> int:
-        # Roman numerals mapping
-        roman_to_int = {
-            'I': 1,
-            'V': 5,
-            'X': 10,
-            'L': 50,
-            'C': 100,
-            'D': 500,
-            'M': 1000
-        }
-        
-        total = 0
-        prev_value = 0
+    def isValid(self, s: str) -> bool:
+        # Stack to keep track of opening brackets
+        stack = []
+        # Mapping of closing to opening brackets
+        mapping = {')': '(', '}': '{', ']': '['}
 
-        # Traverse the Roman numeral from right to left
-        for char in reversed(s):
-            current_value = roman_to_int[char]
-            # If the current value is less than the previous value, it means we need to subtract
-            if current_value < prev_value:
-                total -= current_value
+        for char in s:
+            # If it's a closing bracket
+            if char in mapping:
+                # Pop the topmost element if stack is not empty, else assign a dummy value
+                top_element = stack.pop() if stack else '#'
+                # Check if the mapping is correct
+                if mapping[char] != top_element:
+                    return False
             else:
-                total += current_value
-            prev_value = current_value
-        
-        return total
+                # It's an opening bracket, push onto the stack
+                stack.append(char)
+
+        # If stack is empty, all opening brackets are matched
+        return not stack
