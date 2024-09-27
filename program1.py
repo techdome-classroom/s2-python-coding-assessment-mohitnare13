@@ -10,7 +10,8 @@ class ValidParentheses:
                
                 top_element = stack.pop() if stack else '#'
                 
-                opening bracket, return False
+            
+            bracket, return False
                 if bracket_map[char] != top_element:
                     return False
             else:
