@@ -18,6 +18,6 @@ def romanToInt(s: str) -> int:
     return total
 
 # Example usage
-print(romanToInt("III"))      # Output: 3
-print(romanToInt("LVIII"))    # Output: 58
-print(romanToInt("MCMXCIV"))  # Output: 1994
+print(romanToInt("III"))     
+print(romanToInt("LVIII"))    
+print(romanToInt("MCMXCIV"))
