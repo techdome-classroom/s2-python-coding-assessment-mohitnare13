@@ -2,7 +2,7 @@ class Solution:
     def isValid(self, s: str) -> bool:
         
         stack = []
-        # Mapping of closing to opening brackets
+       
         mapping = {')': '(', '}': '{', ']': '['}
 
         for char in s:
