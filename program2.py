@@ -7,4 +7,5 @@ def romanToInt(str):
        for char in reversed(str):
            value = roman_values[char]
            if value < prev_value :
-               total_
+               total -= value
+                
