@@ -1,3 +1,4 @@
+# Solution class defining the isValid method
 class Solution:
     def isValid(self, s: str) -> bool:
         # Stack to store the opening brackets
@@ -15,6 +16,7 @@ class Solution:
                 if mapping[char] != top_element:
                     return False
             else:
+                # If it's an opening bracket, push it onto the stack
                 stack.append(char)
         
         # If stack is empty, all opening brackets are closed properly
@@ -39,8 +41,9 @@ class TestSolution(unittest.TestCase):
 
     def test_empty_string(self):
         self.assertTrue(self.solution.isValid(""))
+
     def test_mixed_parentheses(self):
         self.assertFalse(self.solution.isValid("(){"))
 
-if __name__ == '_main_':
-    unittest.main(argv=['first-arg-is-ignored'],exit=False)
+if _name_ == '_main_':
+    unittest.main(argv=['first-arg-is-ignored'], exit=False)
