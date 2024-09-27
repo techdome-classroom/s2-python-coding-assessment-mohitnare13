@@ -8,7 +8,7 @@ class Solution:
         for char in s:
             
             if char in mapping:
-                # Pop the topmost element if stack is not empty, else assign a dummy value
+               
                 top_element = stack.pop() if stack else '#'
                 # Check if the mapping is correct
                 if mapping[char] != top_element:
