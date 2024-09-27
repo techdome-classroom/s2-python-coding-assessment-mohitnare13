@@ -7,7 +7,7 @@ class Solution:
         
         for char in s:
             if char in bracket_map:  
-                # Pop the top element of the stack, if stack is not empty; otherwise, use a dummy value '#'
+                
                 top_element = stack.pop() if stack else '#'
                 
                 # If the top element doesn't match the corresponding opening bracket, return False
