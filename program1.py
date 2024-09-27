@@ -1,6 +1,6 @@
 class ValidParentheses:
     def isValid(self, s: str) -> bool:
-        # Dictionary to map closing brackets to corresponding opening brackets
+       
         bracket_map = {')': '(', ']': '[', '}': '{'}
         stack = []
 
