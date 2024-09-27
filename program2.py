@@ -15,3 +15,28 @@ class Solution:
                 if mapping[char] != top_element:
                     return False
             else:
+                stack.append(char)
+        
+        # If stack is empty, all opening brackets are closed properly
+        return not stack
+
+
+# Unit test code
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_valid_parentheses(self):
+        self.assertTrue(self.solution.isValid("()"))
+        self.assertTrue(self.solution.isValid("()[]{}"))
+        self.assertTrue(self.solution.isValid("{[()]}"))
+
+    def test_invalid_parentheses(self):
+        self.assertFalse(self.solution.isValid("(]"))
+        self.assertFalse(self.solution.isValid("([)]"))
+
+    def test_empty_string(self):
+        self.assertTrue(self.solution.isValid(""))
+
