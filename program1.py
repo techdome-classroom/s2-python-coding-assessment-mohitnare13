@@ -6,7 +6,7 @@ class Solution:
         mapping = {')': '(', '}': '{', ']': '['}
 
         for char in s:
-            # If it's a closing bracket
+            
             if char in mapping:
                 # Pop the topmost element if stack is not empty, else assign a dummy value
                 top_element = stack.pop() if stack else '#'
