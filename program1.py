@@ -46,4 +46,4 @@ class TestSolution(unittest.TestCase):
         self.assertFalse(self.solution.isValid("(){"))
 
 if __name__ == '_main_':
-    unittest.main(argv=['first-arg-is-ignored'], exit=False)
+    unittest.main(argv=['first-arg-is-ignored'],exit=False)
